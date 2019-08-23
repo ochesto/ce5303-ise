@@ -1,0 +1,77 @@
+Nombre: Ernesto Ulate Ramírez
+Carné: 2014092260
+Fecha actual sistema: jue  1 ago 16:03:13 CST 2019
+Usuario: ochesto
+Versión del Kernel: 4.18.0-25-generic
+Procesos: USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+ochesto   1173  0.0  0.1  77024  8072 ?        Ss   jul29   0:00 /lib/systemd/systemd --user
+ochesto   1175  0.0  0.0 114268  2868 ?        S    jul29   0:00 (sd-pam)
+ochesto   1190  0.0  0.1 288356  7780 ?        Sl   jul29   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+ochesto   1193  0.0  0.3 506144 25116 ?        Ssl  jul29   0:01 mate-session
+ochesto   1224  0.0  0.0  52116  6448 ?        Ss   jul29   0:04 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ochesto   1274  0.0  0.0  11304   320 ?        Ss   jul29   0:00 /usr/bin/ssh-agent /usr/bin/im-launch mate-session
+ochesto   1286  0.0  0.0 365804  7428 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfsd
+ochesto   1291  0.0  0.0 416116  5364 ?        Sl   jul29   0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+ochesto   1300  0.0  0.0 349496  6500 ?        Ssl  jul29   0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ochesto   1305  0.0  0.0  50056  4140 ?        S    jul29   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ochesto   1307  0.0  0.0 220840  6904 ?        Sl   jul29   0:02 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ochesto   1309  0.0  0.0 188356  5724 ?        Sl   jul29   0:01 /usr/lib/dconf/dconf-service
+ochesto   1317  0.0  0.6 1687388 50372 ?       Sl   jul29   0:21 /usr/bin/mate-settings-daemon
+ochesto   1341  0.0  0.6 1086028 51728 ?       Sl   jul29   0:07 mate-panel
+ochesto   1374  0.7  0.1 5703064 15148 ?       Sl   jul29  33:54 /usr/bin/pulseaudio --start --log-target=syslog
+ochesto   1384  0.0  0.8 1302272 62444 ?       Sl   jul29   0:03 caja
+ochesto   1446  0.3  0.7 777672 58296 ?        Sl   jul29  13:34 compiz
+ochesto   1451  0.0  0.0 579704  7512 ?        Sl   jul29   0:01 /usr/lib/x86_64-linux-gnu/indicator-power/indicator-power-service
+ochesto   1465  0.0  0.1 945484 12156 ?        Sl   jul29   0:01 /usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+ochesto   1466  0.0  0.4 847440 34876 ?        Sl   jul29   0:05 mate-power-manager
+ochesto   1469  0.0  0.5 996652 42872 ?        Sl   jul29   0:10 /usr/lib/x86_64-linux-gnu/brisk-menu//brisk-menu
+ochesto   1471  0.0  1.1 1087312 86132 ?       Sl   jul29   0:09 python3 /usr/lib/mate-applets/mate-dock-applet/dock_applet.py
+ochesto   1473  0.0  0.7 873764 59236 ?        Sl   jul29   0:04 /usr/lib/mate-applets/mate-window-applets/window-buttons/window-buttons-applet
+ochesto   1476  0.0  0.4 1000952 37408 ?       Sl   jul29   0:09 /usr/lib/mate-indicator-applet/mate-indicator-applet-complete
+ochesto   1477  0.0  0.5 940524 41820 ?        Sl   jul29   0:05 /usr/lib/mate-panel/clock-applet
+ochesto   1479  0.0  0.3 500484 26088 ?        Sl   jul29   0:00 /usr/lib/mate-panel/notification-area-applet
+ochesto   1527  0.0  0.0 204548  6224 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfsd-metadata
+ochesto   1552  0.0  0.4 587136 31152 ?        Sl   jul29   0:11 mate-screensaver
+ochesto   1554  0.0  0.4 675940 37568 ?        Sl   jul29   0:16 nm-applet
+ochesto   1556  0.0  0.1 380256  9312 ?        Ssl  jul29   0:02 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+ochesto   1559  0.0  0.0 909260  7540 ?        Sl   jul29   0:00 /usr/lib/x86_64-linux-gnu/indicator-session/indicator-session-service
+ochesto   1562  0.0  0.6 540632 48568 ?        Sl   jul29   0:03 mate-maximus
+ochesto   1576  0.0  0.0 288796  6792 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ochesto   1582  0.0  0.4 1000360 35108 ?       Sl   jul29   0:00 /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1
+ochesto   1590  0.0  0.3 598904 26272 ?        Sl   jul29   0:02 update-notifier
+ochesto   1633  0.0  0.0 275876  6260 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ochesto   1645  0.0  0.1 447080  7788 ?        Sl   jul29   0:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+ochesto   1646  0.0  0.1 391424 10800 ?        Sl   jul29   0:02 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+ochesto   1664  0.0  0.6 545184 52732 ?        Ssl  jul29   0:07 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+ochesto   1666  0.0  0.0 274044  6024 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+ochesto   1678  0.0  0.1 378816  7784 ?        Ssl  jul29   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ochesto   1686  0.0  0.1 433464  8728 ?        Ssl  jul29   0:00 /usr/bin/zeitgeist-daemon
+ochesto   1703  0.0  0.2 768848 15508 ?        Sl   jul29   0:01 zeitgeist-datahub
+ochesto   1721  0.0  0.2 326948 17076 ?        Ssl  jul29   0:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts
+ochesto   1726  0.0  0.0   4628   828 ?        Ss   jul29   0:00 /bin/sh -c /usr/bin/gtk-window-decorator
+ochesto   1727  0.0  0.7 902136 55360 ?        Sl   jul29   0:10 /usr/bin/gtk-window-decorator
+ochesto   2404  0.0  0.0   4628   864 ?        Ss   jul29   0:00 sh -c synapse --startup
+ochesto   2405  0.0  0.5 1528880 39840 ?       Sl   jul29   0:02 synapse --startup
+ochesto   2447  0.0  0.1 368120  7664 ?        Sl   jul29   0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.6 /org/gtk/gvfs/exec_spaw/0
+ochesto   2809  2.4  5.7 4098268 440688 ?      Sl   jul29 108:36 /usr/lib/firefox/firefox
+ochesto   2955  0.0  2.9 21661676 222440 ?     Sl   jul29   3:49 /usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -prefsLen 5996 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto   5848  0.0  0.1 444268  7720 ?        Sl   jul30   0:00 /usr/lib/gvfs/gvfsd-network --spawner :1.6 /org/gtk/gvfs/exec_spaw/2
+ochesto   5870  0.0  0.1 381296  7692 ?        Sl   jul30   0:00 /usr/lib/gvfs/gvfsd-dnssd --spawner :1.6 /org/gtk/gvfs/exec_spaw/5
+ochesto   7946  0.1  2.9 2821000 221048 ?      Sl   jul30   3:25 /usr/lib/firefox/firefox -contentproc -childID 13 -isForBrowser -prefsLen 9406 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto   9206  0.2  2.1 2703224 164936 ?      Sl   jul30   6:17 /usr/lib/firefox/firefox -contentproc -childID 16 -isForBrowser -prefsLen 9404 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto   9697  0.0  2.0 2670436 152188 ?      Sl   jul30   0:20 /usr/lib/firefox/firefox -contentproc -childID 17 -isForBrowser -prefsLen 9404 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto  11263  0.0  0.3 561336 23040 ?        Sl   jul31   0:00 /usr/lib/gvfs/gvfsd-http --spawner :1.6 /org/gtk/gvfs/exec_spaw/6
+ochesto  11269  0.0  0.0   4628   828 ?        S    jul31   0:00 sh -c /usr/lib/x86_64-linux-gnu/libproxy/0.4.14/pxgsettings org.gnome.system.proxy org.gnome.system.proxy.http org.gnome.system.proxy.https org.gnome.system.proxy.ftp org.gnome.system.proxy.socks
+ochesto  11270  0.0  0.0 273392  5376 ?        Sl   jul31   0:00 /usr/lib/x86_64-linux-gnu/libproxy/0.4.14/pxgsettings org.gnome.system.proxy org.gnome.system.proxy.http org.gnome.system.proxy.https org.gnome.system.proxy.ftp org.gnome.system.proxy.socks
+ochesto  11305  0.0  2.1 2677312 163608 ?      Sl   jul31   0:21 /usr/lib/firefox/firefox -contentproc -childID 20 -isForBrowser -prefsLen 9504 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto  11535  0.1  1.7 1553556 134160 ?      Sl   jul31   2:03 /usr/share/code/code --unity-launch
+ochesto  11537  0.0  0.5 376012 39064 ?        S    jul31   0:00 /usr/share/code/code --type=zygote --no-sandbox
+ochesto  11567  0.0  1.2 605408 91844 ?        Sl   jul31   1:22 /usr/share/code/code --type=gpu-process --enable-features=SharedArrayBuffer --disable-features=SpareRendererForSitePerProcess --disable-color-correct-rendering --no-sandbox --gpu-preferences=KAAAAAAAAACAAABAAQAAAAAAAAAAAGAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --service-request-channel-token=9525301585021403299
+ochesto  11580  0.2  2.6 1100616 203268 ?      Sl   jul31   4:12 /usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --enable-features=SharedArrayBuffer --disable-features=SpareRendererForSitePerProcess --service-pipe-token=12121463339538428919 --lang=en-US --app-path=/usr/share/code/resources/app --user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.36.1 Chrome/69.0.3497.128 Electron/4.2.5 Safari/537.36 --node-integration=true --webview-tag=true --no-sandbox --background-color=#1e1e1e --num-raster-threads=2 --enable-main-frame-before-activation --service-request-channel-token=12121463339538428919 --renderer-client-id=4 --shared-files=v8_context_snapshot_data:100,v8_natives_data:101
+ochesto  11648  0.0  1.4 696560 109356 ?       Sl   jul31   0:14 /usr/share/code/code --nolazy --inspect=49725 /usr/share/code/resources/app/out/bootstrap-fork --type=extensionHost
+ochesto  11669  0.0  1.2 749556 95388 ?        Sl   jul31   0:07 /usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --enable-features=SharedArrayBuffer --disable-features=SpareRendererForSitePerProcess --service-pipe-token=6176833733197179558 --lang=en-US --app-path=/usr/share/code/resources/app --user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.36.1 Chrome/69.0.3497.128 Electron/4.2.5 Safari/537.36 --node-integration=true --webview-tag=true --no-sandbox --background-color=#1e1e1e --disable-blink-features=Auxclick --num-raster-threads=2 --enable-main-frame-before-activation --service-request-channel-token=6176833733197179558 --renderer-client-id=6 --shared-files=v8_context_snapshot_data:100,v8_natives_data:101
+ochesto  27290  0.0  1.1 2583220 84628 ?       Sl   15:35   0:00 /usr/lib/firefox/firefox -contentproc -childID 25 -isForBrowser -prefsLen 9617 -prefMapSize 186767 -parentBuildID 20190718161435 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 2809 true tab
+ochesto  27438  0.0  0.0   4628   832 ?        Ss   15:44   0:00 /bin/sh -c mate-terminal
+ochesto  27439  0.3  0.5 1019348 39344 ?       Sl   15:44   0:03 mate-terminal
+ochesto  27446  0.0  0.0  29636  5532 pts/0    Ss+  15:44   0:00 bash
+ochesto  27604  0.0  0.0  46772  3936 pts/0    R+   16:03   0:00 ps -ux

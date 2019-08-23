@@ -1,0 +1,15 @@
+
+Se ha creado un archivo Makefile para la compilación de las bibliotecas
+más facilmente.
+
+Para la creación de la biblioteca estática y programa compilado:
+
+    make static-lib 
+
+Para la creación de la biblioteca dinámica y programa compilado:
+
+    make dynamic-lib
+
+Para limpiar archivos:
+
+    make clean

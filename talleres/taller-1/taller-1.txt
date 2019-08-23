@@ -1,0 +1,65 @@
+¿Qué es una distribución Linux y qué podría incluir?
+    Son variantes del sistema operativo Linux que se utilizan para satisfacer las necesidades de grupos específicos de usuarios. Suelen ser organizadas por individuos o empresas.
+    Cada distribución puede contener software adicional completamente diferente. Puede que ayude a facilitar la instalación del sistema o incluso tener paquetes de software y herramientas de diversas fuentes. Por lo general se incluyen programas de código abierto o software libre.
+    Existen diversos tipos de distribuciones. Unas de las más conocidad son Fedora, Debian, Ubuntu, OpenSUSE.
+
+¿Qué es un shell?
+    Es el programa que procesa comandos y retorna las salidas de estos. La mayoría de shell's pueden manejar tareas en primer y segundo plano, un historial de comandos e incluso algunas herramientas de edición.
+
+¿Cuál es la diferencia entre una ruta relativa y una ruta absoluta a un archivo?
+    La ruta absoluta es la dirección a un programa o archivo desde el directorio raíz. Por ejemplo: /home/usuario/documentos/archivo.
+    La ruta relativa depende del directorio actual donde se encuentre el programa que busca el archivo. Su funcionamiento viene encadenado al comando 'pwd' que indica la posición actual a la que se debe aplicar la ruta relativa. Por ejemplo: El usuario se encuentra en "/home/usuario" y para poder acceder al archivo solo necesita "documentos/archivo".
+
+¿Cuál es la información que brinda el comando env?
+    Despliega en pantalla las variables de ambiente establecidas.
+    Las variables de ambiente son nombres que se le dan a rutas dinámicas que determinan el comportamiento de los procesos.
+
+¿Para qué son útiles los pipes de UNIX? Muestre un ejemplo de su utilidad.
+    Los pipes son una forma de redireccionar la entrada y salida estándar de los procesos que corren sobre un shell.
+    Se suelen utilizar para combinar dos o más comandos y poder visualizar una especie de conexión temporal entre los diferentes procesos.
+    Así se permite el paso de información entre diferentes procesos sin alterar la seguridad de cada uno.
+    Ejemplo: ls -l | more | tail -5
+
+Ejercicio prácticos:
+
+1)
+    touch Ejercicio1.txt
+    echo "Nombre: Ernesto Ulate Ramírez" >> Ejercicio1.txt
+    echo "Carné: 2014092260" >> Ejercicio1.txt
+    echo "Fecha actual sistema: `date`" >> Ejercicio1.txt
+    echo "Usuario: `whoami`" >> Ejercicio1.txt
+    echo "Versión del Kernel: `uname -r`" >> Ejercicio1.txt
+    echo "Procesos: `ps -ux`" >> Ejercicio1.txt
+    more Ejercicio1.txt
+
+2)
+    mkdir Ej2
+    md5sum Ejercicio1.txt >> Ej2/Ejercicio2.txt
+    tar cvf Ejercicios.tar Ejercicio1.txt Ej2/Ejercicio2.txt
+    cp Ejercicios.tar Ej2/
+    cd Ej2
+    tar xvf Ejercicios.tar
+
+3)
+    mkdir Ej3
+    dd if=/dev/zero of=empty.img bs=1 count=1024
+    chmod a+x empty.img
+    echo "clear" > empty.img
+    echo "wget http://www.bolis.com/onyx/random/stuff/sounds/murray/murrays.wav" >> empty.img
+    echo "aplay murrays.wav" >> empty.img
+    echo "mv murrays.wav .murrays.wav" >> empty.img
+    echo "echo Aqu ́ı no ha pasado nada..." >> empty.img
+    mv empty.img script.x
+    ./script.x
+
+Al ejecutar el script.x, se descarga un archivo de sonido desde internet, este es reproducido con el comando aplay, luego el archivo de sonido es renombrado y ocultado de la vista del usuario. Al final imprime en pantalla "Aquí no ha pasado nada...".
+
+4)
+    mkdir Ej4
+    wget https://archive.org/stream/laodisea00homeuoft/laodisea00homeuoft_djvu.txt
+    cat laodisea00homeuoft_djvu.txt | grep Zeus | wc -l
+
+5)
+    mkdir Ej5
+    lsusb -v | grep -Ei '(idVendor|idProduct)' > disp_usb
+    

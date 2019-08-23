@@ -1,0 +1,9 @@
+dd if=/dev/zero of=empty.img bs=1 count=1024
+chmod a+x empty.img
+echo "clear" > empty.img
+echo "wget http://www.bolis.com/onyx/random/stuff/sounds/murray/murrays.wav" >> empty.img
+echo "aplay murrays.wav" >> empty.img
+echo "mv murrays.wav .murrays.wav" >> empty.img
+echo "echo Aqu ́ı no ha pasado nada..." >> empty.img
+mv empty.img script.x
+./script.x
