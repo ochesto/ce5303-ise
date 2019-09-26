@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/calculadora.dir/calculadora.c.o  -o calculadora -Wl,-rpath,/home/ochesto/TEC/esi-ce5303/talleres/taller-5/build/lib: lib/liboperaciones.so 

@@ -1,0 +1,3 @@
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/libhello/build/usr/bin/hello
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/libhello/build/usr/lib/libsayhello.so
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/libhello/build/usr/include/say.h

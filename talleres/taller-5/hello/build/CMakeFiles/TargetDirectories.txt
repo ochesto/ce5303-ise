@@ -1,0 +1,7 @@
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/install/strip.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/edit_cache.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/hello.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/rebuild_cache.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/list_install_components.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/install/local.dir
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/hello/build/CMakeFiles/install.dir

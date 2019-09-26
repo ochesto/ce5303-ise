@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/say.h
+stdio.h
+-
+
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/libhello/helloworld.c
+say.h
+-
+

@@ -1,0 +1,3 @@
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/build/usr/bin/calculadora
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/build/usr/lib/liboperaciones.so
+/home/ochesto/TEC/esi-ce5303/talleres/taller-5/build/usr/include/operaciones.h
