@@ -1,9 +1,9 @@
 $date
-     Oct 28, 2019       18:19:23
+     Nov 04, 2019       19:07:32
 $end
 
 $version
- SystemC 2.3.1-Accellera --- Oct 28 2019 13:25:13
+ SystemC 2.3.1-Accellera --- Nov  4 2019 18:08:26
 $end
 
 $timescale
@@ -11,10 +11,16 @@ $timescale
 $end
 
 $scope module SystemC $end
-$var wire    1  aaaaa  clk       $end
-$var wire    1  aaaab  reset       $end
-$var wire    1  aaaac  enable       $end
-$var wire    4  aaaad  state_out [3:0]  $end
+$var wire    1  aaaaa  clk_in       $end
+$var wire    1  aaaab  reset_in       $end
+$var wire    1  aaaac  enable_in       $end
+$var wire    1  aaaad  start_in       $end
+$var wire    3  aaaae  select_in [2:0]  $end
+$var wire    1  aaaaf  delivered_in       $end
+$var wire    4  aaaag  state_out [3:0]  $end
+$var wire    1  aaaah  dropping_coffee_out       $end
+$var wire    1  aaaai  dropping_milk_out       $end
+$var wire    1  aaaaj  dropping_sugar_out       $end
 $upscope $end
 $enddefinitions  $end
 
@@ -23,330 +29,33 @@ All initial values are dumped below at time 1e-09 sec = 1000 timescale units.
 $end
 
 $dumpvars
-0aaaaa
+1aaaaa
 0aaaab
 0aaaac
-b0 aaaad
+0aaaad
+b0 aaaae
+0aaaaf
+b0 aaaag
+0aaaah
+0aaaai
+0aaaaj
 $end
 
-#2000
-1aaaaa
-
-#3000
-0aaaaa
-
-#4000
-1aaaaa
-
-#5000
-0aaaaa
-
-#6000
-1aaaaa
-
-#7000
-0aaaaa
-
-#8000
-1aaaaa
-
-#9000
-0aaaaa
-
-#10000
-1aaaaa
-
 #11000
-0aaaaa
 1aaaab
 
-#12000
-1aaaaa
-
-#13000
-0aaaaa
-
-#14000
-1aaaaa
-
-#15000
-0aaaaa
-
-#16000
-1aaaaa
-
-#17000
-0aaaaa
-
-#18000
-1aaaaa
-
-#19000
-0aaaaa
-
-#20000
-1aaaaa
-
-#21000
-0aaaaa
-
-#22000
-1aaaaa
-
-#23000
-0aaaaa
-
-#24000
-1aaaaa
-
-#25000
-0aaaaa
-
-#26000
-1aaaaa
-
-#27000
-0aaaaa
-
-#28000
-1aaaaa
-
-#29000
-0aaaaa
-
-#30000
-1aaaaa
-
 #31000
-0aaaaa
 0aaaab
 
-#32000
-1aaaaa
-
-#33000
-0aaaaa
-
-#34000
-1aaaaa
-
-#35000
-0aaaaa
-
-#36000
-1aaaaa
-
-#37000
-0aaaaa
-
-#38000
-1aaaaa
-
-#39000
-0aaaaa
-
-#40000
-1aaaaa
-
-#41000
-0aaaaa
-
-#42000
-1aaaaa
-
-#43000
-0aaaaa
-
-#44000
-1aaaaa
-
-#45000
-0aaaaa
-
-#46000
-1aaaaa
-
-#47000
-0aaaaa
-
-#48000
-1aaaaa
-
-#49000
-0aaaaa
-
-#50000
-1aaaaa
-
 #51000
-0aaaaa
 1aaaac
 
-#52000
-1aaaaa
-b1 aaaad
-
-#53000
-0aaaaa
-
-#54000
-1aaaaa
-b10 aaaad
-
-#55000
-0aaaaa
-
-#56000
-1aaaaa
-b0 aaaad
-
-#57000
-0aaaaa
-
-#58000
-1aaaaa
-b1 aaaad
-
-#59000
-0aaaaa
-
-#60000
-1aaaaa
-b10 aaaad
-
-#61000
-0aaaaa
-
-#62000
-1aaaaa
-b0 aaaad
-
-#63000
-0aaaaa
-
-#64000
-1aaaaa
-b1 aaaad
-
-#65000
-0aaaaa
-
-#66000
-1aaaaa
-b10 aaaad
-
-#67000
-0aaaaa
-
-#68000
-1aaaaa
-b0 aaaad
-
-#69000
-0aaaaa
-
-#70000
-1aaaaa
-b1 aaaad
-
-#71000
-0aaaaa
-
-#72000
-1aaaaa
-b10 aaaad
-
-#73000
-0aaaaa
-
-#74000
-1aaaaa
-b0 aaaad
-
-#75000
-0aaaaa
-
-#76000
-1aaaaa
-b1 aaaad
-
-#77000
-0aaaaa
-
-#78000
-1aaaaa
-b10 aaaad
-
-#79000
-0aaaaa
-
-#80000
-1aaaaa
-b0 aaaad
-
-#81000
-0aaaaa
-
-#82000
-1aaaaa
-b1 aaaad
-
-#83000
-0aaaaa
-
-#84000
-1aaaaa
-b10 aaaad
-
-#85000
-0aaaaa
-
-#86000
-1aaaaa
-b0 aaaad
-
-#87000
-0aaaaa
-
-#88000
-1aaaaa
-b1 aaaad
-
-#89000
-0aaaaa
-
-#90000
-1aaaaa
-b10 aaaad
-
 #91000
-0aaaaa
+1aaaad
+
+#131000
+0aaaad
+
+#141000
 0aaaac
-
-#92000
-1aaaaa
-
-#93000
-0aaaaa
-
-#94000
-1aaaaa
-
-#95000
-0aaaaa
-
-#96000
-1aaaaa
-
-#97000
-0aaaaa
-
-#98000
-1aaaaa
-
-#99000
-0aaaaa
-
-#100000
-1aaaaa
 
