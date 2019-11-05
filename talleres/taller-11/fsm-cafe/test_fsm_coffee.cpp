@@ -8,6 +8,7 @@ int sc_main (int agrc, char *argv[])
     sc_signal<bool>             enable_in;
     sc_signal<bool>             start_in;
     sc_signal< sc_uint<3> >     select_in;
+    sc_signal< sc_uint<3> >      action_ready_in;
     sc_signal<bool>             delivered_in;
     sc_signal< sc_uint<4> >     state_out;
     sc_signal<bool>             dropping_coffee_out;
@@ -22,6 +23,7 @@ int sc_main (int agrc, char *argv[])
     coffee_machine.enable(enable_in);
     coffee_machine.start(start_in);
     coffee_machine.select(select_in);
+    coffee_machine.action_ready(action_ready_in);
     coffee_machine.delivered(delivered_in);
     coffee_machine.state(state_out);
     coffee_machine.dropping_coffee(dropping_coffee_out);
@@ -39,6 +41,7 @@ int sc_main (int agrc, char *argv[])
     sc_trace(wf, enable_in, "enable_in");
     sc_trace(wf, start_in, "start_in");
     sc_trace(wf, select_in, "select_in");
+    sc_trace(wf, action_ready_in, "action_ready_in");
     sc_trace(wf, delivered_in, "delivered_in");
     sc_trace(wf, state_out, "state_out");
     sc_trace(wf, dropping_coffee_out, "dropping_coffee_out");
@@ -52,12 +55,13 @@ int sc_main (int agrc, char *argv[])
     enable_in = 0;
     start_in = 0;
     select_in = 0;
+    action_ready_in = 0;
     delivered_in = 0;
     for (i = 0; i < 5; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 
@@ -66,9 +70,9 @@ int sc_main (int agrc, char *argv[])
     cout << "@" << sc_time_stamp() << " :: Asserting_reset" << endl;
     for (i = 0; i < 10; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 
@@ -77,9 +81,9 @@ int sc_main (int agrc, char *argv[])
     cout << "@" << sc_time_stamp() << " :: De-asserting_reset" << endl;
     for (i = 0; i < 10; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 
@@ -88,9 +92,9 @@ int sc_main (int agrc, char *argv[])
     cout << "@" << sc_time_stamp() << " :: Asserting_enable" << endl;
     for (i = 0; i < 20; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 
@@ -99,33 +103,142 @@ int sc_main (int agrc, char *argv[])
     cout << "@" << sc_time_stamp() << " :: Asserting_start" << endl;
     for (i = 0; i < 20; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 
-    
+    // Assert the select_in
+    select_in = 1;
+    cout << "@" << sc_time_stamp() << " :: Asserting_select" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // Assert the action_ready_in (coffee)
+    action_ready_in = 1;
+    cout << "@" << sc_time_stamp() << " :: Asserting_action_ready (coffee)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // Assert the action_ready_in (milk)
+    action_ready_in = 2;
+    cout << "@" << sc_time_stamp() << " :: Asserting_action_ready (milk)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // Assert the action_ready_in (sugar)
+    action_ready_in = 4;
+    cout << "@" << sc_time_stamp() << " :: Asserting_action_ready (sugar)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // Assert the delivered_in
+    delivered_in = 1;
+    cout << "@" << sc_time_stamp() << " :: Asserting_delivered" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // De-assert the delivered
+    delivered_in = 0;
+    cout << "@" << sc_time_stamp() << " :: De-asserting_delivered" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // De-assert the action_ready_in (sugar)
+    action_ready_in = 0;
+    cout << "@" << sc_time_stamp() << " :: De-asserting_action_ready (sugar)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // De-assert the action_ready_in (milk)
+    action_ready_in = 0;
+    cout << "@" << sc_time_stamp() << " :: De-asserting_action_ready (milk)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // De-assert the action_ready_in (coffee)
+    action_ready_in = 0;
+    cout << "@" << sc_time_stamp() << " :: De-asserting_action_ready (coffee)" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
+
+    // De-assert the select_in
+    select_in = 0;
+    cout << "@" << sc_time_stamp() << " :: De-asserting_select" << endl;
+    for (i = 0; i < 5; i++)
+    {
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
+        sc_start(1, SC_NS);
+    }
 
     // De-assert the start_in
     start_in = 0;
     cout << "@" << sc_time_stamp() << " :: De-asserting_start" << endl;
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 20; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
+
 
     // De-assert the enable_in
     enable_in = 0;
     cout << "@" << sc_time_stamp() << " :: De-asserting_enable" << endl;
     for (i = 0; i < 5; i++)
     {
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
-        clock_in = ~clock_in;
+        clock_in = (clock_in.read() == 1) ? 0 : 1;
         sc_start(1, SC_NS);
     }
 

@@ -1,8 +1,17 @@
 #include "systemc.h"
 
+#include <stdio.h>
+
 #define BLACK_COFFEE 1
 #define LATTE_COFFEE 2
 #define CAPUCCINO_COFFEE 4
+
+#define Idle_state 1
+#define Coffee_selected_state 2
+#define Drop_coffee_state 3
+#define Drop_milk_state 4
+#define Drop_sugar_state 5
+#define Waiting_deliver_state 6
 
 SC_MODULE (fsm_coffee)
 {
@@ -11,21 +20,12 @@ SC_MODULE (fsm_coffee)
     sc_in<bool>             enable;
     sc_in<bool>             start;
     sc_in< sc_uint<3> >     select;
+    sc_in< sc_uint<3> >     action_ready;
     sc_in<bool>             delivered;
     sc_out< sc_uint<4> >    state;
     sc_out<bool>            dropping_coffee;
     sc_out<bool>            dropping_milk;
     sc_out<bool>            dropping_sugar;
-
-    enum states
-    {
-        Idle_state,
-        Coffee_selected_state,
-        Drop_coffee_state,
-        Drop_milk_state,
-        Drop_sugar_state,
-        Waiting_deliver_state,
-    };
 
     // local variables
     sc_uint<4> actual_state;
@@ -48,7 +48,7 @@ SC_MODULE (fsm_coffee)
             switch (actual_state)
             {
             case Idle_state:
-                if( start.read() )
+                if( start.read() == 1 )
                 {
                     next_state = Coffee_selected_state;
                 }
@@ -68,7 +68,9 @@ SC_MODULE (fsm_coffee)
                     selection = 0x7;
                 }
 
-                next_state = Drop_coffee_state;
+                next_state = Coffee_selected_state;
+                if( select.read() == 1 )
+                    next_state = Drop_coffee_state;
                 break;
 
             case Drop_coffee_state:
@@ -79,7 +81,9 @@ SC_MODULE (fsm_coffee)
                     dropping_sugar.write(0);
                 }
 
-                next_state = Drop_milk_state;
+                next_state = Drop_coffee_state;
+                if( action_ready.read() == 1 )
+                    next_state = Drop_milk_state;
                 break;
 
             case Drop_milk_state:
@@ -91,7 +95,9 @@ SC_MODULE (fsm_coffee)
 
                 }
 
-                next_state = Drop_sugar_state;
+                next_state = Drop_milk_state;
+                if( action_ready.read() == 2 )
+                    next_state = Drop_sugar_state;
                 break;
 
             case Drop_sugar_state:
@@ -104,15 +110,14 @@ SC_MODULE (fsm_coffee)
                 }
 
                 next_state = Drop_sugar_state;
+                if( action_ready.read() >= 4 )
+                    next_state = Waiting_deliver_state;
                 break;
 
             case Waiting_deliver_state:
-                if( delivered.read() == 1 )
-                {
-                    next_state = Idle_state;
-                }
-
                 next_state = Waiting_deliver_state;
+                if( delivered.read() == 1 )
+                    next_state = Idle_state;
                 break;
 
             default:
