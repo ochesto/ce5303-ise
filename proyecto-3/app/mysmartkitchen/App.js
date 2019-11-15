@@ -57,7 +57,7 @@ export default class App extends React.Component {
     );
   }
 
-  _executeRequest = async (route) => {
+  _executeRequest = async (route, type) => {
 
       fetch(api.URL+route, {
         method: 'POST',
@@ -66,7 +66,7 @@ export default class App extends React.Component {
         }
       }).then((response) => response.json())
           .then((responseJson) => {
-            this._handleResponse(responseJson);
+            this._handleResponse(responseJson, type);
           })
           .catch((error) => {
             this.setState({
@@ -75,14 +75,18 @@ export default class App extends React.Component {
           });
   }
 
-  _handleResponse = (response) => {
-    if (response.status === 200){
+  _handleResponse = (response, type) => {
+    if (response.status === 1){
       this.setState({
-        warningMessage: `Successful request!` 
+        warningMessage: type + 'ON' 
+      });
+    } else if (response.status === 0){
+      this.setState({
+        warningMessage: type + 'OFF' 
       });
     } else {
       this.setState({
-        warningMessage: `Error` 
+        warningMessage: 'ERROR' 
       });
     }
   };
@@ -91,25 +95,29 @@ export default class App extends React.Component {
     this.setState({ 
         showLightImg1: !this.state.showLightImg1
     });
-    this._executeRequest('/firstled');
+    this._executeRequest('/firstled', 'LED 1 ');
   }
 
   _onLight2Press = () => {
     this.setState({ 
         showLightImg2: !this.state.showLightImg2
     });
-    this._executeRequest('/secondled');
+    this._executeRequest('/secondled', 'LED 2 ');
   }
 
   _onLight3Press = () => {
     this.setState({ 
         showLightImg3: !this.state.showLightImg3
     });
-    this._executeRequest('/thirdled');
+    this._executeRequest('/thirdled', 'LED 3 ');
   }
 
-  _onButtonKitchenPress = () => {
-    this._executeRequest('/kitchen');
+  _onButtonKitchen1Press = () => {
+    this._executeRequest('/firstkitchen', 'LEFT KITCHEN ');
+  }
+
+  _onButtonKitchen2Press = () => {
+    this._executeRequest('/secondkitchen', 'RIGHT KITCHEN ');
   }
 
   render() {
@@ -121,20 +129,17 @@ export default class App extends React.Component {
         </View>
         
         <View style={styles.lightcontainer}>
-          <Text style={styles.text}> Light Kitchen </Text>
           <TouchableOpacity onPress={this._onLight1Press} 
           >
             {this._renderImage1()}
           </TouchableOpacity>
        
-          <Text style={styles.text}> Light 1 </Text>
           <TouchableOpacity
               onPress={this._onLight2Press} 
           >
             {this._renderImage2()}
           </TouchableOpacity>
       
-          <Text style={styles.text}> Light 2 </Text>
           <TouchableOpacity
               onPress={this._onLight3Press} 
           >
@@ -142,8 +147,12 @@ export default class App extends React.Component {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={this._onButtonKitchenPress}>
-					<Text style={styles.buttonText}>Use Kitchen</Text>
+        <TouchableOpacity style={styles.button} onPress=    {this._onButtonKitchen1Press}>
+					<Text style={styles.buttonText}>Use Left Kitchen</Text>
+				</TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress=    {this._onButtonKitchen2Press}>
+					<Text style={styles.buttonText}>Use Right Kitchen</Text>
 				</TouchableOpacity>
 
         <Text style={styles.description}>{this.state.warningMessage}</Text>
@@ -160,11 +169,13 @@ const styles = StyleSheet.create({
   },
   logocontainer: {
     flexDirection: 'row',
+    marginBottom: 30
   },
   lightcontainer: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    marginBottom: 50
   },
   logo: {
     marginTop: 70,
@@ -177,12 +188,6 @@ const styles = StyleSheet.create({
     height: 180,
     width: 180
   },
-  text: {
-    color: 'black',
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
   buttonText: {
     color: 'white',
     fontSize: 24,
@@ -191,16 +196,16 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 225,
-    height: 85,
+    height: 75,
     borderRadius: 25,
     backgroundColor: "#DB4711",
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
     borderWidth: 2,
     borderColor: 'rgb(0, 0, 0)'
   },
   description: {
-    marginTop: 10,
+    marginTop: 30,
     fontSize: 16,
     color: '#ffffff',
     textAlign: 'center',
